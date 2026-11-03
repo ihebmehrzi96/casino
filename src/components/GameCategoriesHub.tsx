@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Play, Sparkles, X, Layers, Flame, Trophy } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { Play, Sparkles, X, ChevronLeft, ChevronRight, Layers, Flame, Trophy, ExternalLink } from "lucide-react";
 
 interface GameItem {
   id: string;
@@ -122,31 +123,84 @@ const ALL_GAMES: GameItem[] = [
     volatility: "High",
     thumbnailUrl: "https://images.unsplash.com/photo-1606167668584-78701c57f13d?auto=format&fit=crop&w=600&q=80",
   },
+  {
+    id: "blackjack-vip",
+    title: "VIP Infinite Blackjack",
+    category: "Table Games",
+    provider: "Evolution Live",
+    rtp: "99.47%",
+    volatility: "Low",
+    thumbnailUrl: "https://images.unsplash.com/photo-1511193311914-0346f16efe90?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: "craps-first-person",
+    title: "First Person Craps",
+    category: "Craps",
+    provider: "Evolution Live",
+    rtp: "99.17%",
+    volatility: "Low",
+    thumbnailUrl: "https://images.unsplash.com/photo-1606167668584-78701c57f13d?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: "keno-universe",
+    title: "Keno Universe",
+    category: "Keno",
+    provider: "EGT / Amusnet",
+    rtp: "97.10%",
+    volatility: "Medium",
+    thumbnailUrl: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: "ocean-king",
+    title: "Ocean King Fish Hunter",
+    category: "Fish Games",
+    provider: "TaDa Gaming",
+    rtp: "97.50%",
+    volatility: "Medium",
+    thumbnailUrl: "https://images.unsplash.com/photo-1596838132731-3301c3fd4317?auto=format&fit=crop&w=600&q=80",
+  },
 ];
 
 const CATEGORIES = [
   "All Games",
   "Slots",
   "Roulette",
-  "Keno",
+  "Crash Games",
+  "Plinko Games",
+  "Mines Games",
   "Baccarat",
-  "Bingo",
-  "Craps",
-  "Scratch Cards",
   "Video Poker",
   "Table Games",
-  "Plinko Games",
   "Chicken Gambling",
-  "Crash Games",
+  "Craps",
+  "Keno",
   "Fish Games",
-  "Mines Games",
   "Sic Bo Games",
-  "Other",
 ];
+
+const CATEGORY_ICONS: Record<string, string> = {
+  "All Games": "✨",
+  Slots: "🎰",
+  Roulette: "🎡",
+  "Crash Games": "💥",
+  "Plinko Games": "🎯",
+  "Mines Games": "💣",
+  Baccarat: "♠️",
+  "Video Poker": "🃏",
+  "Table Games": "🎴",
+  "Chicken Gambling": "🐔",
+  Craps: "🎲",
+  Keno: "🔢",
+  "Fish Games": "🐟",
+  "Sic Bo Games": "🎲",
+};
 
 export default function GameCategoriesHub() {
   const [selectedCategory, setSelectedCategory] = useState("All Games");
   const [playingGame, setPlayingGame] = useState<GameItem | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   // Filter games based on selected category
   const displayedGames = ALL_GAMES.filter((g) => {
@@ -154,174 +208,280 @@ export default function GameCategoriesHub() {
     return g.category.toLowerCase().includes(selectedCategory.toLowerCase());
   });
 
+  // GSAP animation when category changes
+  useEffect(() => {
+    if (!gridRef.current) return;
+
+    const cards = gridRef.current.querySelectorAll(".game-card-item");
+    if (!cards.length) return;
+
+    gsap.killTweensOf(cards);
+    gsap.fromTo(
+      cards,
+      { opacity: 0, y: 20, scale: 0.94 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        stagger: 0.04,
+        duration: 0.35,
+        ease: "power2.out",
+      }
+    );
+  }, [selectedCategory]);
+
+  // GSAP modal entrance
+  useEffect(() => {
+    if (playingGame && modalRef.current) {
+      gsap.fromTo(
+        modalRef.current,
+        { opacity: 0, scale: 0.92, y: 25 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(1.4)" }
+      );
+    }
+  }, [playingGame]);
+
+  const handleScroll = (direction: "left" | "right") => {
+    if (!scrollContainerRef.current) return;
+    const amount = direction === "left" ? -260 : 260;
+    scrollContainerRef.current.scrollBy({ left: amount, behavior: "smooth" });
+  };
+
   return (
-    <section id="game-categories" className="py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-[#0E0F14] text-white">
+    <section id="game-categories" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-[#090A0E] text-white relative">
       <div className="max-w-7xl mx-auto">
         
-        {/* Section Header */}
-        <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-zinc-300 uppercase tracking-wider mb-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              Game Categories & Free Play Demo
+        {/* ── SECTION HEADER ── */}
+        <div className="mb-10 text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 uppercase tracking-widest mb-3 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <span>Interactive Game Library & Studio Demos</span>
+          </div>
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-3">
+            Explore Online Casino Games by Type
+          </h2>
+          
+          <p className="text-sm sm:text-base text-zinc-400 font-normal leading-relaxed">
+            Select any category from the Game Library deck below to filter authentic studio demo titles.
+          </p>
+        </div>
+
+        {/* ── TOP HORIZONTAL GAME LIBRARY DOCK (GSAP ANIMATED) ── */}
+        <div className="mb-10 bg-[#0D0F15] border border-white/10 rounded-2xl p-4 sm:p-5 shadow-2xl relative">
+          
+          {/* Top Bar inside Dock */}
+          <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-white/10">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-xs font-black uppercase tracking-wider text-white">
+                GAME LIBRARY
+              </span>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/10 text-zinc-300">
+                {CATEGORIES.length} Categories
+              </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Explore Online Casino Games by Type
-            </h2>
-            <p className="text-sm text-zinc-400 mt-1 font-normal">
-              Select any game category on the menu to filter original studio demo titles.
-            </p>
+
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono text-zinc-400 hidden sm:inline">
+                Showing <strong className="text-white">{displayedGames.length}</strong> games in{" "}
+                <span className="text-emerald-400 font-bold">{selectedCategory}</span>
+              </span>
+
+              {/* Scroll Arrows */}
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => handleScroll("left")}
+                  className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white transition-colors"
+                  aria-label="Scroll Categories Left"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleScroll("right")}
+                  className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white transition-colors"
+                  aria-label="Scroll Categories Right"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div className="text-xs font-mono text-zinc-400">
-            Showing <strong className="text-white">{displayedGames.length}</strong> titles in{" "}
-            <span className="text-pink-400 font-bold">{selectedCategory}</span>
+          {/* Horizontal Scrolling Category Pills Deck */}
+          <div
+            ref={scrollContainerRef}
+            className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none scroll-smooth"
+          >
+            {CATEGORIES.map((cat) => {
+              const isSelected = selectedCategory === cat;
+              const icon = CATEGORY_ICONS[cat] || "🎲";
+              const count = cat === "All Games"
+                ? ALL_GAMES.length
+                : ALL_GAMES.filter((g) => g.category.toLowerCase().includes(cat.toLowerCase())).length;
+
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-bold shrink-0 flex items-center gap-2 transition-all duration-200 cursor-pointer ${
+                    isSelected
+                      ? "bg-white text-black font-black shadow-lg shadow-white/20 scale-105 border-transparent"
+                      : "bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white border border-white/[0.08] hover:border-white/20"
+                  }`}
+                >
+                  <span className="text-sm">{icon}</span>
+                  <span>{cat}</span>
+                  {count > 0 && (
+                    <span
+                      className={`text-[10px] font-mono px-1.5 py-0.2 rounded-md ${
+                        isSelected ? "bg-black/15 text-black font-bold" : "bg-white/10 text-zinc-400"
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* 2-Column Hub Layout: Scrollable Category Menu on Left (Image 1) + Interactive Game Grid on Right */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-          
-          {/* ── Left Sidebar Menu: EXACT MATCH TO IMAGE 1 ── */}
-          <div className="md:col-span-4 lg:col-span-3 rounded-2xl overflow-hidden shadow-2xl border border-white/15 bg-[#6A165C]">
-            <div className="p-3.5 border-b border-white/15 bg-[#5A124E] flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-white">Game Library</span>
-              <span className="text-[10px] font-mono text-pink-200">17 Categories</span>
+        {/* ── FULL-WIDTH GAME CARDS GRID (BELOW THE DOCK) ── */}
+        <div ref={gridRef}>
+          {displayedGames.length === 0 ? (
+            <div className="p-16 rounded-2xl bg-[#0D0F15] border border-white/10 text-center max-w-xl mx-auto space-y-4">
+              <p className="text-zinc-400 text-sm">
+                No free demo games currently listed for <strong className="text-white">{selectedCategory}</strong>.
+              </p>
+              <button
+                onClick={() => setSelectedCategory("All Games")}
+                className="px-5 py-2.5 rounded-xl bg-white hover:bg-zinc-200 text-black text-xs font-bold uppercase tracking-wider transition-all"
+              >
+                Show All Games
+              </button>
             </div>
-
-            {/* Scrollable Category List with Native Custom Scrollbar */}
-            <div className="h-[440px] overflow-y-scroll py-2 divide-y divide-white/5 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-              {CATEGORIES.map((cat) => {
-                const isSelected = selectedCategory === cat;
-                return (
-                  <button
-                    key={cat}
-                    type="button"
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`w-full text-left px-5 py-3 text-sm font-medium transition flex items-center justify-between ${
-                      isSelected
-                        ? "bg-white/20 text-white font-bold pl-6 border-l-4 border-pink-300"
-                        : "text-white/90 hover:text-white hover:bg-white/10"
-                    }`}
-                  >
-                    <span>{cat}</span>
-                    {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-pink-300" />}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* ── Right Content: Game Grid Filtered by Category ── */}
-          <div className="md:col-span-8 lg:col-span-9">
-            {displayedGames.length === 0 ? (
-              <div className="p-12 rounded-2xl bg-zinc-900 border border-white/10 text-center">
-                <p className="text-zinc-400 text-sm">
-                  No free demo games currently listed for <strong className="text-white">{selectedCategory}</strong>.
-                </p>
-                <button
-                  onClick={() => setSelectedCategory("All Games")}
-                  className="mt-4 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold"
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+              {displayedGames.map((game) => (
+                <div
+                  key={game.id}
+                  className="game-card-item rounded-2xl bg-[#0D0F15] border border-white/10 overflow-hidden flex flex-col justify-between group hover:border-white/30 hover:-translate-y-1.5 transition-all duration-300 shadow-2xl"
                 >
-                  Show All Games
-                </button>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {displayedGames.map((game) => (
-                  <div
-                    key={game.id}
-                    className="rounded-2xl bg-zinc-900 border border-white/10 overflow-hidden flex flex-col justify-between group hover:border-white/25 transition shadow-lg"
-                  >
-                    {/* Game Thumbnail */}
-                    <div className="relative aspect-video w-full overflow-hidden bg-black">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={game.thumbnailUrl}
-                        alt={game.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <button
-                          onClick={() => setPlayingGame(game)}
-                          className="bg-white hover:bg-zinc-200 text-black font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider flex items-center gap-1.5 shadow"
-                        >
-                          <Play className="w-3.5 h-3.5 fill-black" />
-                          Play Demo
-                        </button>
-                      </div>
-                      <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-black/80 border border-white/20 text-[10px] font-bold uppercase text-white">
-                        {game.category}
-                      </div>
+                  {/* Game Thumbnail with Hover Play Button */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-black">
+                    <img
+                      src={game.thumbnailUrl}
+                      alt={game.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+
+                    {/* Dark gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D0F15] via-transparent to-black/30" />
+
+                    {/* Category Tag on top left */}
+                    <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold uppercase tracking-wider text-white">
+                      {game.category}
                     </div>
 
-                    {/* Game Details */}
-                    <div className="p-4 space-y-2">
-                      <div>
-                        <h4 className="text-base font-bold text-white group-hover:text-zinc-200">
-                          {game.title}
-                        </h4>
-                        <div className="text-xs text-zinc-400">{game.provider}</div>
-                      </div>
-
-                      <div className="flex items-center justify-between text-xs pt-2 border-t border-white/10 text-zinc-300">
-                        <span>
-                          RTP: <strong className="text-emerald-400">{game.rtp}</strong>
-                        </span>
-                        <span>
-                          Vol: <strong className="text-white">{game.volatility}</strong>
-                        </span>
-                      </div>
+                    {/* Center Hover Play Button */}
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                      <button
+                        onClick={() => setPlayingGame(game)}
+                        className="bg-white hover:bg-zinc-200 text-black font-extrabold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider flex items-center gap-2 shadow-xl hover:scale-105 transition-all"
+                      >
+                        <Play className="w-3.5 h-3.5 fill-black" />
+                        <span>Play Demo</span>
+                      </button>
                     </div>
                   </div>
-                ))}
-              </div>
-            )}
-          </div>
 
+                  {/* Game Details */}
+                  <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                      <h4 className="text-base sm:text-lg font-black text-white group-hover:text-zinc-100 transition-colors tracking-tight line-clamp-1">
+                        {game.title}
+                      </h4>
+                      <div className="text-xs text-zinc-400 font-medium mt-0.5">
+                        {game.provider}
+                      </div>
+                    </div>
+
+                    {/* Specs: RTP and Volatility */}
+                    <div className="flex items-center justify-between text-xs pt-3 border-t border-white/10 text-zinc-300">
+                      <span className="font-mono">
+                        RTP: <strong className="text-emerald-400 font-bold">{game.rtp}</strong>
+                      </span>
+                      <span className="font-mono">
+                        Vol: <strong className="text-white">{game.volatility}</strong>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
       </div>
 
-      {/* Demo Modal when a game is launched */}
+      {/* ── DEMO PLAY MODAL SIMULATOR ── */}
       {playingGame && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="w-full max-w-4xl bg-zinc-950 border border-white/20 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
-            <div className="p-4 bg-zinc-900 border-b border-white/10 flex items-center justify-between">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+          <div
+            ref={modalRef}
+            className="w-full max-w-3xl bg-[#0D0F15] border border-white/20 rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+          >
+            {/* Modal Header */}
+            <div className="p-4 sm:p-5 bg-zinc-900/90 border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <span className="font-bold text-white text-base">{playingGame.title}</span>
-                <span className="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-mono">
+                <span className="font-black text-white text-base sm:text-lg">
+                  {playingGame.title}
+                </span>
+                <span className="text-[11px] px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-mono font-bold">
                   RTP {playingGame.rtp}
                 </span>
               </div>
               <button
+                type="button"
                 onClick={() => setPlayingGame(null)}
-                className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-white/10"
+                className="w-8 h-8 rounded-lg text-zinc-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition-colors"
+                aria-label="Close Modal"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="aspect-video w-full bg-black flex flex-col items-center justify-center p-8 text-center">
-              <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4">
+            {/* Modal Simulator Area */}
+            <div className="aspect-video w-full bg-black flex flex-col items-center justify-center p-6 sm:p-10 text-center relative">
+              <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center mb-4 shadow-inner">
                 <Play className="w-8 h-8 text-white fill-white ml-1" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-1">
-                Demo Play Simulator: {playingGame.title}
+
+              <h3 className="text-xl sm:text-2xl font-black text-white mb-2">
+                Certified Demo Stream: {playingGame.title}
               </h3>
-              <p className="text-zinc-400 text-xs max-w-md">
-                Certified original server feed by {playingGame.provider}. Random Number Generator verified under standard test conditions.
+              
+              <p className="text-zinc-400 text-xs sm:text-sm max-w-md leading-relaxed">
+                Direct client/server websocket simulation verified by {playingGame.provider}. Random Number Generator operates under standard GLI-19 certified test conditions.
               </p>
-              <div className="mt-6 flex items-center gap-3">
+
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                 <button
-                  onClick={() => alert("Free demo credit loaded ($5,000 fun balance). Enjoy!")}
-                  className="px-6 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs uppercase"
+                  type="button"
+                  onClick={() => alert("Free demo credit reloaded ($5,000 fun balance). Enjoy!")}
+                  className="px-6 py-2.5 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-lg shadow-white/10"
                 >
-                  Spin Demo ($5,000 Free Credits)
+                  Spin Demo ($5,000 Balance)
                 </button>
                 <button
+                  type="button"
                   onClick={() => setPlayingGame(null)}
-                  className="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold"
+                  className="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider transition-all"
                 >
                   Close
                 </button>
