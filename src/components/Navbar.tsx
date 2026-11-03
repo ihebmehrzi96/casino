@@ -181,7 +181,7 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   onClick={handleCloseNav}
-                  className="font-semibold tracking-tight hover:text-zinc-200 transition-colors"
+                  className="font-tanker text-2xl sm:text-3xl lg:text-4xl tracking-wider uppercase hover:text-zinc-200 transition-colors inline-block"
                 >
                   {item.name}
                 </Link>

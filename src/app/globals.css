@@ -148,13 +148,14 @@ h1, h2, h3, h4 {
 }
 
 .gsap-fullscreen-nav ul li a {
+  font-family: 'Tanker', 'Poppins', sans-serif;
   color: #fafafa;
-  font-size: 1.65rem;
+  font-size: 1.85rem;
   text-decoration: none;
-  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   position: relative;
   display: inline-block;
-  letter-spacing: -0.3px;
   transition: color 0.2s ease;
 }
 
