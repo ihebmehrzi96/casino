@@ -34,11 +34,11 @@ interface InteractiveCasinoListProps {
 }
 
 const CARD_GRADIENTS = [
-  "bg-gradient-to-r from-[#111724] via-[#0E1E28] to-[#121622] border-cyan-500/30",
-  "bg-gradient-to-r from-[#201416] via-[#24131B] to-[#171118] border-rose-500/30",
-  "bg-gradient-to-r from-[#111E16] via-[#0F221B] to-[#11191D] border-emerald-500/30",
-  "bg-gradient-to-r from-[#1E1610] via-[#241B11] to-[#171318] border-amber-500/30",
-  "bg-gradient-to-r from-[#171224] via-[#1B1126] to-[#13111C] border-purple-500/30",
+  "bg-gradient-to-r from-[#1F1A25] via-[#26202D] to-[#1F1A25] border-[#A9D8F5]/25",
+  "bg-gradient-to-r from-[#231A24] via-[#2A1D28] to-[#1F1824] border-[#F04464]/30",
+  "bg-gradient-to-r from-[#1B1B26] via-[#212330] to-[#1A1A24] border-[#A9D8F5]/30",
+  "bg-gradient-to-r from-[#241B26] via-[#2C1F2E] to-[#201825] border-[#F04464]/25",
+  "bg-gradient-to-r from-[#1C1824] via-[#231E2D] to-[#1A1622] border-[#A9D8F5]/25",
 ];
 
 export default function InteractiveCasinoList({ initialCasinos }: InteractiveCasinoListProps) {
@@ -166,9 +166,7 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
         <button
           onClick={() => setActiveFilter("ALL")}
           className={`px-4 py-2 rounded-full font-semibold text-xs shrink-0 flex items-center gap-2 transition-all duration-150 ${
-            activeFilter === "ALL"
-              ? "bg-white text-black shadow-sm"
-              : "bg-white/[0.03] text-zinc-400 hover:text-white border border-white/[0.08] hover:border-white/20"
+            activeFilter === "ALL" ? "bg-[#F04464] text-[#F8F5F2] shadow-md shadow-[#F04464]/30" : "bg-[#1F1A25] text-[#A9D8F5] hover:text-[#F8F5F2] border border-[#A9D8F5]/20 hover:border-[#F04464]/40"
           }`}
         >
           <Flame className="w-3.5 h-3.5" />
@@ -178,9 +176,7 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
         <button
           onClick={() => setActiveFilter("NO_DEPOSIT")}
           className={`px-4 py-2 rounded-full font-semibold text-xs shrink-0 flex items-center gap-2 transition-all duration-150 ${
-            activeFilter === "NO_DEPOSIT"
-              ? "bg-white text-black shadow-sm"
-              : "bg-white/[0.03] text-zinc-400 hover:text-white border border-white/[0.08] hover:border-white/20"
+            activeFilter === "NO_DEPOSIT" ? "bg-[#F04464] text-[#F8F5F2] shadow-md shadow-[#F04464]/30" : "bg-[#1F1A25] text-[#A9D8F5] hover:text-[#F8F5F2] border border-[#A9D8F5]/20 hover:border-[#F04464]/40"
           }`}
         >
           <Gift className="w-3.5 h-3.5" />
@@ -190,9 +186,7 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
         <button
           onClick={() => setActiveFilter("FAST")}
           className={`px-4 py-2 rounded-full font-semibold text-xs shrink-0 flex items-center gap-2 transition-all duration-150 ${
-            activeFilter === "FAST"
-              ? "bg-white text-black shadow-sm"
-              : "bg-white/[0.03] text-zinc-400 hover:text-white border border-white/[0.08] hover:border-white/20"
+            activeFilter === "FAST" ? "bg-[#F04464] text-[#F8F5F2] shadow-md shadow-[#F04464]/30" : "bg-[#1F1A25] text-[#A9D8F5] hover:text-[#F8F5F2] border border-[#A9D8F5]/20 hover:border-[#F04464]/40"
           }`}
         >
           <Zap className="w-3.5 h-3.5" />
@@ -202,9 +196,7 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
         <button
           onClick={() => setActiveFilter("CRYPTO")}
           className={`px-4 py-2 rounded-full font-semibold text-xs shrink-0 flex items-center gap-2 transition-all duration-150 ${
-            activeFilter === "CRYPTO"
-              ? "bg-white text-black shadow-sm"
-              : "bg-white/[0.03] text-zinc-400 hover:text-white border border-white/[0.08] hover:border-white/20"
+            activeFilter === "CRYPTO" ? "bg-[#F04464] text-[#F8F5F2] shadow-md shadow-[#F04464]/30" : "bg-[#1F1A25] text-[#A9D8F5] hover:text-[#F8F5F2] border border-[#A9D8F5]/20 hover:border-[#F04464]/40"
           }`}
         >
           <Coins className="w-3.5 h-3.5" />
@@ -214,9 +206,7 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
         <button
           onClick={() => setActiveFilter("SAFETY")}
           className={`px-4 py-2 rounded-full font-semibold text-xs shrink-0 flex items-center gap-2 transition-all duration-150 ${
-            activeFilter === "SAFETY"
-              ? "bg-white text-black shadow-sm"
-              : "bg-white/[0.03] text-zinc-400 hover:text-white border border-white/[0.08] hover:border-white/20"
+            activeFilter === "SAFETY" ? "bg-[#F04464] text-[#F8F5F2] shadow-md shadow-[#F04464]/30" : "bg-[#1F1A25] text-[#A9D8F5] hover:text-[#F8F5F2] border border-[#A9D8F5]/20 hover:border-[#F04464]/40"
           }`}
         >
           <ShieldCheck className="w-3.5 h-3.5" />
@@ -225,9 +215,9 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
 
         <Link
           href="/blacklist"
-          className="px-4 py-2 rounded-full bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border border-rose-500/20 font-semibold text-xs shrink-0 flex items-center gap-2 transition-all ml-auto"
+          className="px-4 py-2 rounded-full bg-[#F04464]/10 hover:bg-[#F04464]/20 text-[#F04464] border border-[#F04464]/30 font-semibold text-xs shrink-0 flex items-center gap-2 transition-all ml-auto"
         >
-          <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />
+          <ShieldAlert className="w-3.5 h-3.5 text-[#F04464]" />
           <span>Blacklist (24 Sites)</span>
         </Link>
       </div>
@@ -235,21 +225,21 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pt-2">
         <div>
-          <div className="flex items-center gap-2 text-zinc-400 text-xs font-black uppercase tracking-widest mb-1.5">
+          <div className="flex items-center gap-2 text-[#A9D8F5] text-xs font-black uppercase tracking-widest mb-1.5">
             <Award className="w-4 h-4 text-white" />
             CasinoFreak Verified Database
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-[#F8F5F2] tracking-tight">
             Audited & Ranked Online Casinos
           </h2>
-          <p className="text-sm text-zinc-400 mt-1 font-medium">
+          <p className="text-sm text-[#F8F5F2]/80 mt-1 font-medium">
             Compare licensed operators, withdrawal velocity, and tested wagering clauses.
           </p>
         </div>
 
         <Link
           href="/casinos"
-          className="group inline-flex items-center gap-1.5 text-xs font-black text-white uppercase tracking-wider hover:underline"
+          className="group inline-flex items-center gap-1.5 text-xs font-black text-[#A9D8F5] hover:text-[#F04464] uppercase tracking-wider hover:underline"
         >
           <span>{t.filters.browseAll}</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -275,7 +265,7 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
                 className={`casino-accordion border ${CARD_GRADIENTS[idx % CARD_GRADIENTS.length]}`}
               >
                 {/* Top Medal Ribbon */}
-                <div className="absolute top-0 left-0 bg-white text-black text-[11px] font-black px-4 py-1 rounded-tl-2xl rounded-br-2xl shadow-md tracking-wider uppercase flex items-center gap-1.5 z-10">
+                <div className="absolute top-0 left-0 bg-[#F04464] text-[#F8F5F2] text-[11px] font-black px-4 py-1 rounded-tl-2xl rounded-br-2xl shadow-md tracking-wider uppercase flex items-center gap-1.5 z-10 font-tanker">
                   <span>#{idx + 1}</span>
                   <span className="text-[10px] tracking-widest font-extrabold opacity-80">
                     {idx === 0 ? "VAULT MEDAL" : idx <= 2 ? "TOP MEDAL" : "VERIFIED"}
@@ -305,11 +295,11 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
                         {casino.name}
                       </Link>
                       <div className="flex items-center gap-2 mt-1">
-                        <div className="flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-black bg-white text-black">
-                          <Star className="w-3 h-3 fill-black text-black" />
+                        <div className="flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-black bg-[#A9D8F5] text-[#17131B]">
+                          <Star className="w-3 h-3 fill-[#17131B] text-[#17131B]" />
                           {casino.rating.toFixed(1)} / 10
                         </div>
-                        <span className="text-xs text-zinc-400 font-medium">
+                        <span className="text-xs text-[#A9D8F5] font-medium">
                           {casino.license?.split("(")[0]}
                         </span>
                       </div>
@@ -340,7 +330,7 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
                       target="_blank"
                       rel="noopener noreferrer nofollow"
                       onClick={(e) => e.stopPropagation()}
-                      className="py-2.5 px-5 rounded-xl bg-white hover:bg-zinc-200 text-black font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-md shadow-white/10 hover:scale-[1.02] transition-all"
+                      className="py-2.5 px-5 rounded-xl bg-[#F04464] hover:bg-[#e03353] text-[#F8F5F2] font-tanker tracking-wider uppercase text-sm flex items-center gap-1.5 shadow-md shadow-[#F04464]/30 hover:scale-[1.02] transition-all"
                     >
                       <span>{t.card.claimBonus}</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -371,11 +361,11 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
 
                       {/* Quick Specs Chips */}
                       <div className="flex flex-wrap items-center gap-2 text-xs font-semibold pt-1">
-                        <span className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-black/60 border border-white/10 text-zinc-300">
+                        <span className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#17131B] border border-[#A9D8F5]/20 text-[#A9D8F5]">
                           <CreditCard className="w-3.5 h-3.5 text-white" />
                           Min: <strong className="text-white">{casino.minDeposit}</strong>
                         </span>
-                        <span className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-black/60 border border-white/10 text-zinc-300">
+                        <span className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#17131B] border border-[#A9D8F5]/20 text-[#A9D8F5]">
                           <Clock className="w-3.5 h-3.5 text-white" />
                           Payout: <strong className="text-white">{casino.payoutSpeed}</strong>
                         </span>
@@ -385,7 +375,7 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
                           </span>
                         )}
                         {topBonus?.bonusCode && (
-                          <span className="px-2.5 py-1 rounded-lg bg-white text-black font-mono font-black text-xs">
+                          <span className="px-2.5 py-1 rounded-lg bg-[#A9D8F5] text-[#17131B] font-mono font-black text-xs">
                             CODE: {topBonus.bonusCode}
                           </span>
                         )}
@@ -394,12 +384,12 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
                       {/* Verified Points */}
                       <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-zinc-400">
                         <span className="inline-flex items-center gap-1 text-white font-semibold">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#F04464] animate-pulse"></span>
                           Verified Player Region
                         </span>
                         {parsedPros.length > 0 && (
                           <span className="inline-flex items-center gap-1 text-zinc-300">
-                            <Check className="w-3.5 h-3.5 text-emerald-400" />
+                            <Check className="w-3.5 h-3.5 text-[#A9D8F5]" />
                             <span>{parsedPros[0]}</span>
                           </span>
                         )}
@@ -410,7 +400,7 @@ export default function InteractiveCasinoList({ initialCasinos }: InteractiveCas
                     <div className="lg:col-span-4 flex flex-col justify-end items-end gap-3">
                       <Link
                         href={`/casinos/${casino.slug}`}
-                        className="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                        className="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-[#17131B] hover:bg-[#26202D] border border-[#A9D8F5]/25 text-[#A9D8F5] hover:text-[#F8F5F2] font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
                       >
                         <span>{t.card.readReview}</span>
                         <ArrowRight className="w-4 h-4" />

@@ -248,36 +248,36 @@ export default function GameCategoriesHub() {
   };
 
   return (
-    <section id="game-categories" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-[#090A0E] text-white relative">
+    <section id="game-categories" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[#A9D8F5]/15 bg-[#17131B] text-[#F8F5F2] relative">
       <div className="max-w-7xl mx-auto">
         
         {/* ── SECTION HEADER ── */}
         <div className="mb-10 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 uppercase tracking-widest mb-3 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A9D8F5] uppercase tracking-widest mb-3 px-3.5 py-1.5 rounded-full bg-[#1F1A25] border border-[#A9D8F5]/25">
+            <Sparkles className="w-3.5 h-3.5 text-[#F04464]" />
             <span>Interactive Game Library & Studio Demos</span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#F8F5F2] tracking-tight mb-3">
             Explore Online Casino Games by Type
           </h2>
           
-          <p className="text-sm sm:text-base text-zinc-400 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base text-[#F8F5F2]/80 font-normal leading-relaxed">
             Select any category from the Game Library deck below to filter authentic studio demo titles.
           </p>
         </div>
 
         {/* ── TOP HORIZONTAL GAME LIBRARY DOCK (GSAP ANIMATED) ── */}
-        <div className="mb-10 bg-[#0D0F15] border border-white/10 rounded-2xl p-4 sm:p-5 shadow-2xl relative">
+        <div className="mb-10 bg-[#1F1A25] border border-[#A9D8F5]/20 rounded-2xl p-4 sm:p-5 shadow-2xl relative">
           
           {/* Top Bar inside Dock */}
-          <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-white/10">
+          <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-[#A9D8F5]/15">
             <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-xs font-black uppercase tracking-wider text-white">
+              <span className="w-2 h-2 rounded-full bg-[#F04464] animate-pulse" />
+              <span className="text-xs font-black uppercase tracking-wider text-[#F8F5F2]">
                 GAME LIBRARY
               </span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/10 text-zinc-300">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-[#17131B] text-[#A9D8F5] border border-[#A9D8F5]/20">
                 {CATEGORIES.length} Categories
               </span>
             </div>
@@ -285,7 +285,7 @@ export default function GameCategoriesHub() {
             <div className="flex items-center gap-3">
               <span className="text-xs font-mono text-zinc-400 hidden sm:inline">
                 Showing <strong className="text-white">{displayedGames.length}</strong> games in{" "}
-                <span className="text-emerald-400 font-bold">{selectedCategory}</span>
+                <span className="text-[#F04464] font-bold">{selectedCategory}</span>
               </span>
 
               {/* Scroll Arrows */}
@@ -329,8 +329,8 @@ export default function GameCategoriesHub() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2.5 rounded-xl text-xs font-bold shrink-0 flex items-center gap-2 transition-all duration-200 cursor-pointer ${
                     isSelected
-                      ? "bg-white text-black font-black shadow-lg shadow-white/20 scale-105 border-transparent"
-                      : "bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white border border-white/[0.08] hover:border-white/20"
+                      ? "bg-[#F04464] text-[#F8F5F2] font-black shadow-lg shadow-[#F04464]/35 scale-105 border-transparent"
+                      : "bg-[#17131B] hover:bg-[#26202D] text-[#A9D8F5] hover:text-[#F8F5F2] border border-[#A9D8F5]/20 hover:border-[#F04464]/40"
                   }`}
                 >
                   <span className="text-sm">{icon}</span>
@@ -369,7 +369,7 @@ export default function GameCategoriesHub() {
               {displayedGames.map((game) => (
                 <div
                   key={game.id}
-                  className="game-card-item rounded-2xl bg-[#0D0F15] border border-white/10 overflow-hidden flex flex-col justify-between group hover:border-white/30 hover:-translate-y-1.5 transition-all duration-300 shadow-2xl"
+                  className="game-card-item rounded-2xl bg-[#1F1A25] border border-[#A9D8F5]/20 overflow-hidden flex flex-col justify-between group hover:border-[#F04464]/60 hover:-translate-y-1.5 transition-all duration-300 shadow-2xl hover:shadow-[0_15px_30px_-10px_rgba(240,68,100,0.25)]"
                 >
                   {/* Game Thumbnail with Hover Play Button */}
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-black">
@@ -381,10 +381,10 @@ export default function GameCategoriesHub() {
                     />
 
                     {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D0F15] via-transparent to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1F1A25] via-transparent to-[#17131B]/40" />
 
                     {/* Category Tag on top left */}
-                    <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold uppercase tracking-wider text-white">
+                    <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-[#17131B]/85 backdrop-blur-md border border-[#A9D8F5]/30 text-[10px] font-mono font-bold uppercase tracking-wider text-[#A9D8F5]">
                       {game.category}
                     </div>
 
@@ -392,9 +392,9 @@ export default function GameCategoriesHub() {
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                       <button
                         onClick={() => setPlayingGame(game)}
-                        className="bg-white hover:bg-zinc-200 text-black font-extrabold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider flex items-center gap-2 shadow-xl hover:scale-105 transition-all"
+                        className="bg-[#F04464] hover:bg-[#e03353] text-[#F8F5F2] font-tanker tracking-wider uppercase px-5 py-2.5 rounded-xl text-sm flex items-center gap-2 shadow-xl hover:scale-105 transition-all shadow-[#F04464]/30"
                       >
-                        <Play className="w-3.5 h-3.5 fill-black" />
+                        <Play className="w-3.5 h-3.5 fill-[#F8F5F2]" />
                         <span>Play Demo</span>
                       </button>
                     </div>
@@ -406,15 +406,15 @@ export default function GameCategoriesHub() {
                       <h4 className="text-base sm:text-lg font-black text-white group-hover:text-zinc-100 transition-colors tracking-tight line-clamp-1">
                         {game.title}
                       </h4>
-                      <div className="text-xs text-zinc-400 font-medium mt-0.5">
+                      <div className="text-xs text-[#A9D8F5] font-medium mt-0.5">
                         {game.provider}
                       </div>
                     </div>
 
                     {/* Specs: RTP and Volatility */}
-                    <div className="flex items-center justify-between text-xs pt-3 border-t border-white/10 text-zinc-300">
+                    <div className="flex items-center justify-between text-xs pt-3 border-t border-[#A9D8F5]/15 text-[#A9D8F5]">
                       <span className="font-mono">
-                        RTP: <strong className="text-emerald-400 font-bold">{game.rtp}</strong>
+                        RTP: <strong className="text-[#A9D8F5] font-bold">{game.rtp}</strong>
                       </span>
                       <span className="font-mono">
                         Vol: <strong className="text-white">{game.volatility}</strong>
@@ -434,15 +434,15 @@ export default function GameCategoriesHub() {
         <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
           <div
             ref={modalRef}
-            className="w-full max-w-3xl bg-[#0D0F15] border border-white/20 rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+            className="w-full max-w-3xl bg-[#17131B] border border-[#A9D8F5]/30 rounded-2xl overflow-hidden shadow-2xl flex flex-col"
           >
             {/* Modal Header */}
-            <div className="p-4 sm:p-5 bg-zinc-900/90 border-b border-white/10 flex items-center justify-between">
+            <div className="p-4 sm:p-5 bg-[#1F1A25] border-b border-[#A9D8F5]/20 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="font-black text-white text-base sm:text-lg">
                   {playingGame.title}
                 </span>
-                <span className="text-[11px] px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-mono font-bold">
+                <span className="text-[11px] px-2.5 py-0.5 rounded-md bg-[#A9D8F5]/10 text-[#A9D8F5] border border-[#A9D8F5]/30 font-mono font-bold">
                   RTP {playingGame.rtp}
                 </span>
               </div>
@@ -474,14 +474,14 @@ export default function GameCategoriesHub() {
                 <button
                   type="button"
                   onClick={() => alert("Free demo credit reloaded ($5,000 fun balance). Enjoy!")}
-                  className="px-6 py-2.5 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-lg shadow-white/10"
+                  className="px-6 py-2.5 rounded-xl bg-[#F04464] hover:bg-[#e03353] text-[#F8F5F2] font-tanker uppercase tracking-wider text-sm transition-all shadow-lg shadow-[#F04464]/30"
                 >
                   Spin Demo ($5,000 Balance)
                 </button>
                 <button
                   type="button"
                   onClick={() => setPlayingGame(null)}
-                  className="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider transition-all"
+                  className="px-5 py-2.5 rounded-xl bg-[#1F1A25] hover:bg-[#26202D] border border-[#A9D8F5]/25 text-[#A9D8F5] hover:text-[#F8F5F2] text-xs font-bold uppercase tracking-wider transition-all"
                 >
                   Close
                 </button>

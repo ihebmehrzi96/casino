@@ -9,13 +9,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        coral: {
+          DEFAULT: "#F04464",
+          hover: "#e03353",
+          light: "rgba(240, 68, 100, 0.15)",
+        },
+        ice: {
+          DEFAULT: "#A9D8F5",
+          hover: "#8ecbf2",
+          light: "rgba(169, 216, 245, 0.15)",
+        },
+        obsidian: {
+          DEFAULT: "#17131B",
+          card: "#1F1A25",
+          surface: "#26202D",
+          border: "rgba(169, 216, 245, 0.15)",
+        },
+        porcelain: {
+          DEFAULT: "#F8F5F2",
+          muted: "rgba(248, 245, 242, 0.7)",
+          subtle: "rgba(248, 245, 242, 0.4)",
+        },
         matte: {
-          950: "#000000",
-          900: "#09090B",
-          850: "#111114",
-          800: "#18181D",
-          750: "#22222A",
-          700: "#2C2C36",
+          950: "#0F0C12",
+          900: "#17131B",
+          850: "#1F1A25",
+          800: "#26202D",
+          750: "#2F2837",
+          700: "#3A3244",
         },
       },
       fontFamily: {

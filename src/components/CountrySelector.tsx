@@ -27,22 +27,22 @@ export default function CountrySelector({ variant = "pill" }: CountrySelectorPro
   if (variant === "banner") {
     return (
       <div ref={dropdownRef} className="relative w-full">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-xl bg-zinc-900 border border-white/10 text-xs text-zinc-300">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#1F1A25] border border-[#A9D8F5]/20 text-xs text-[#F8F5F2]">
           <div className="flex items-center gap-2.5">
             <span className="text-xl leading-none">{country.flag}</span>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-white text-sm">
+                <span className="font-bold text-[#F8F5F2] text-sm">
                   Showing casinos available in {country.name}
                 </span>
                 {isAutoDetected && (
-                  <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[10px] font-semibold">
+                  <span className="px-2 py-0.5 rounded-full bg-[#A9D8F5]/10 border border-[#A9D8F5]/25 text-[#A9D8F5] font-mono text-[10px] font-semibold">
                     Auto-Detected
                   </span>
                 )}
               </div>
-              <p className="text-zinc-400 text-xs mt-0.5">
-                License Authority: <span className="text-zinc-300 font-medium">{country.licenseAuthority}</span>
+              <p className="text-[#A9D8F5]/70 text-xs mt-0.5">
+                License Authority: <span className="text-[#A9D8F5] font-medium">{country.licenseAuthority}</span>
               </p>
             </div>
           </div>
@@ -51,17 +51,17 @@ export default function CountrySelector({ variant = "pill" }: CountrySelectorPro
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs border border-white/15 transition cursor-pointer"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#17131B] hover:bg-[#26202D] text-[#F8F5F2] font-semibold text-xs border border-[#A9D8F5]/25 transition cursor-pointer"
             >
-              <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+              <MapPin className="w-3.5 h-3.5 text-[#F04464]" />
               <span>Change Country</span>
-              <ChevronDown className="w-3.5 h-3.5 text-zinc-400" />
+              <ChevronDown className="w-3.5 h-3.5 text-[#A9D8F5]" />
             </button>
 
             {/* Dropdown Menu */}
             {isOpen && (
-              <div className="absolute right-0 mt-2 w-64 rounded-xl bg-[#14151B] border border-white/15 shadow-2xl py-2 z-50 animate-in fade-in zoom-in-95 duration-100 max-h-80 overflow-y-auto">
-                <div className="px-3 py-1.5 text-[11px] font-bold text-zinc-400 uppercase tracking-wider border-b border-white/10">
+              <div className="absolute right-0 mt-2 w-64 rounded-xl bg-[#17131B] border border-[#A9D8F5]/25 shadow-2xl py-2 z-50 animate-in fade-in zoom-in-95 duration-100 max-h-80 overflow-y-auto">
+                <div className="px-3 py-1.5 text-[11px] font-bold text-[#A9D8F5] uppercase tracking-wider border-b border-[#A9D8F5]/15 font-tanker">
                   Select Your Region
                 </div>
                 {SUPPORTED_COUNTRIES.map((c) => {

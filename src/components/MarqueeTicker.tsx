@@ -107,13 +107,13 @@ export default function MarqueeTicker() {
     <div className="flex items-center gap-12 sm:gap-16 px-6 shrink-0">
       {AUTHORITIES.map((auth, index) => (
         <div key={`${auth.name}-${index}`} className="flex items-center gap-3 group shrink-0">
-          <div className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:border-white/25 transition-all duration-200">
+          <div className="w-9 h-9 rounded-xl bg-[#1F1A25] border border-[#A9D8F5]/20 flex items-center justify-center group-hover:scale-110 group-hover:border-[#F04464]/50 transition-all duration-200">
             {auth.icon}
           </div>
-          <span className="font-semibold text-lg sm:text-xl text-zinc-300 group-hover:text-white transition-colors tracking-tight">
+          <span className="font-tanker text-lg sm:text-xl text-[#F8F5F2] group-hover:text-[#F04464] transition-colors tracking-wider">
             {auth.name}
           </span>
-          <span className="text-zinc-700 text-xs ml-4 sm:ml-6 font-mono">✦</span>
+          <span className="text-[#A9D8F5]/40 text-xs ml-4 sm:ml-6 font-mono">✦</span>
         </div>
       ))}
     </div>
@@ -124,7 +124,7 @@ export default function MarqueeTicker() {
       ref={tickerRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="w-full bg-[#08090C] border-y border-white/[0.08] py-4 overflow-hidden relative cursor-default select-none shadow-inner"
+      className="w-full bg-[#17131B] border-y border-[#A9D8F5]/15 py-4 overflow-hidden relative cursor-default select-none shadow-inner"
     >
       <div className="flex w-max">
         <div ref={track1Ref} className="flex shrink-0">

@@ -106,13 +106,13 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
   ];
 
   return (
-    <section className="bg-[#121319] border-t border-white/10 py-16 px-4 sm:px-6 lg:px-8 text-white">
+    <section className="bg-[#17131B] border-t border-[#A9D8F5]/15 py-16 px-4 sm:px-6 lg:px-8 text-[#F8F5F2]">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-sm">
           
           {/* Column 1: Popular Pages */}
           <div>
-            <h3 className="font-extrabold text-xs tracking-wider uppercase mb-5 text-white">
+            <h3 className="font-tanker text-sm tracking-wider uppercase mb-5 text-[#F8F5F2]">
               POPULAR PAGES
             </h3>
             <ul className="space-y-2.5 text-xs">
@@ -122,14 +122,14 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
                     <button
                       type="button"
                       onClick={() => handleFilterClick(item.filter)}
-                      className="text-zinc-400 hover:text-white transition text-left"
+                      className="text-[#A9D8F5]/80 hover:text-[#F04464] transition text-left"
                     >
                       {item.name}
                     </button>
                   ) : (
                     <a
                       href={item.href || "/casinos"}
-                      className="text-zinc-400 hover:text-white transition"
+                      className="text-[#A9D8F5]/80 hover:text-[#F04464] transition"
                     >
                       {item.name}
                     </a>
@@ -141,7 +141,7 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
 
           {/* Column 2: Casinos by Game */}
           <div>
-            <h3 className="font-extrabold text-xs tracking-wider uppercase mb-5 text-white">
+            <h3 className="font-tanker text-sm tracking-wider uppercase mb-5 text-[#F8F5F2]">
               CASINOS BY GAME
             </h3>
             <ul className="space-y-2.5 text-xs">
@@ -149,7 +149,7 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
                 <li key={game}>
                   <a
                     href="#free-games"
-                    className="text-zinc-400 hover:text-white transition"
+                    className="text-[#A9D8F5]/80 hover:text-[#F04464] transition"
                   >
                     {game}
                   </a>
@@ -160,7 +160,7 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
 
           {/* Column 3: Country */}
           <div>
-            <h3 className="font-extrabold text-xs tracking-wider uppercase mb-5 text-white">
+            <h3 className="font-tanker text-sm tracking-wider uppercase mb-5 text-[#F8F5F2]">
               COUNTRY
             </h3>
             <ul className="space-y-2.5 text-xs">
@@ -172,7 +172,7 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
                     className={`transition text-left ${
                       c.highlight
                         ? "font-bold text-white uppercase mt-2 pt-2 border-t border-white/10 block"
-                        : "text-zinc-400 hover:text-white"
+                        : "text-[#A9D8F5]/80 hover:text-[#F04464]"
                     }`}
                   >
                     {c.name}
@@ -184,7 +184,7 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
 
           {/* Column 4: Software */}
           <div>
-            <h3 className="font-extrabold text-xs tracking-wider uppercase mb-5 text-white">
+            <h3 className="font-tanker text-sm tracking-wider uppercase mb-5 text-[#F8F5F2]">
               SOFTWARE
             </h3>
             <ul className="space-y-2.5 text-xs">
@@ -195,7 +195,7 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
                     className={`transition ${
                       software === "ALL SOFTWARE"
                         ? "font-bold text-white uppercase mt-2 pt-2 border-t border-white/10 block"
-                        : "text-zinc-400 hover:text-white"
+                        : "text-[#A9D8F5]/80 hover:text-[#F04464]"
                     }`}
                   >
                     {software}
@@ -207,7 +207,7 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
 
           {/* Column 5: Banking */}
           <div>
-            <h3 className="font-extrabold text-xs tracking-wider uppercase mb-5 text-white">
+            <h3 className="font-tanker text-sm tracking-wider uppercase mb-5 text-[#F8F5F2]">
               BANKING
             </h3>
             <ul className="space-y-2.5 text-xs">
@@ -218,7 +218,7 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
                     className={`transition ${
                       method === "ALL BANKING"
                         ? "font-bold text-white uppercase mt-2 pt-2 border-t border-white/10 block"
-                        : "text-zinc-400 hover:text-white"
+                        : "text-[#A9D8F5]/80 hover:text-[#F04464]"
                     }`}
                   >
                     {method}
@@ -230,7 +230,7 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
 
           {/* Column 6: License */}
           <div>
-            <h3 className="font-extrabold text-xs tracking-wider uppercase mb-5 text-white">
+            <h3 className="font-tanker text-sm tracking-wider uppercase mb-5 text-[#F8F5F2]">
               LICENSE
             </h3>
             <ul className="space-y-2.5 text-xs">
@@ -238,7 +238,7 @@ export default function CasinoHubDirectory({ onCategorySelect }: CasinoHubDirect
                 <li key={lic}>
                   <a
                     href="#protocol"
-                    className="text-zinc-400 hover:text-white transition"
+                    className="text-[#A9D8F5]/80 hover:text-[#F04464] transition"
                   >
                     {lic}
                   </a>

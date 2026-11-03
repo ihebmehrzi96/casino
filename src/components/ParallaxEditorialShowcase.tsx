@@ -53,7 +53,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     reviewUrl: "/casinos/bitstarz",
     badge: "Highest Safety Score",
     accentBorder: "hover:border-emerald-400/50",
-    accentColor: "text-emerald-400",
+    accentColor: "text-[#A9D8F5]",
   },
   {
     id: "showcase-2",
@@ -72,7 +72,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     reviewUrl: "/casinos/leovegas",
     badge: "Tier-1 Regulatory Benchmark",
     accentBorder: "hover:border-amber-400/50",
-    accentColor: "text-amber-400",
+    accentColor: "text-[#F04464]",
   },
   {
     id: "showcase-3",
@@ -241,27 +241,27 @@ export default function ParallaxEditorialShowcase() {
     <section
       ref={sectionRef}
       id="editorial-showcase"
-      className="editorial-carousel-section min-h-screen py-16 lg:py-24 flex flex-col justify-center border-b border-white/10 overflow-hidden relative"
+      className="editorial-carousel-section bg-[#17131B] min-h-screen py-16 lg:py-24 flex flex-col justify-center border-b border-[#A9D8F5]/15 overflow-hidden relative"
     >
       {/* ── SECTION HEADER ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1F1A25] border border-[#A9D8F5]/25 text-xs font-mono text-[#A9D8F5] uppercase tracking-widest mb-3">
             <Award className="w-3.5 h-3.5 text-amber-400" />
             <span>Editorial Flagship Series</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#F8F5F2] leading-tight">
             {t.filters.topRatedTitle}
           </h2>
         </div>
 
         <div className="max-w-md">
-          <p className="text-sm text-zinc-400 font-normal leading-relaxed">
+          <p className="text-sm text-[#F8F5F2]/80 font-normal leading-relaxed">
             {t.filters.topRatedSubtitle}
           </p>
-          <div className="mt-2 flex items-center gap-2 text-xs font-mono text-emerald-400">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="mt-2 flex items-center gap-2 text-xs font-mono text-[#A9D8F5]">
+            <span className="w-2 h-2 rounded-full bg-[#F04464] animate-pulse" />
             <span>6 Audited Operators • Live Registry</span>
           </div>
         </div>
@@ -274,7 +274,7 @@ export default function ParallaxEditorialShowcase() {
             {SHOWCASE_ITEMS.map((item) => (
               <div key={item.id} className="swiper-slide">
                 <div
-                  className={`card group rounded-2xl bg-[#0D0F15] border border-white/10 ${item.accentBorder} transition-all duration-300 shadow-2xl overflow-hidden flex flex-col`}
+                  className={`card group rounded-2xl bg-[#1F1A25] border border-[#A9D8F5]/20 ${item.accentBorder} transition-all duration-300 shadow-2xl overflow-hidden flex flex-col`}
                 >
                   {/* Media Container with Image & Overlays */}
                   <div className="media-container relative aspect-[16/9] w-full overflow-hidden bg-zinc-950">
@@ -286,14 +286,14 @@ export default function ParallaxEditorialShowcase() {
                     />
 
                     {/* Dark Vignette Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D0F15] via-transparent to-black/50" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1F1A25] via-transparent to-[#17131B]/60" />
 
                     {/* Top Row Badges */}
                     <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between z-10">
-                      <span className="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-white/15 text-[11px] font-mono font-bold tracking-wider text-zinc-300 uppercase">
+                      <span className="px-2.5 py-1 rounded-md bg-[#17131B]/80 backdrop-blur-md border border-[#A9D8F5]/30 text-[11px] font-mono font-bold tracking-wider text-[#A9D8F5] uppercase">
                         {item.rank}
                       </span>
-                      <span className="px-2.5 py-1 rounded-md bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 text-emerald-300 text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-md">
+                      <span className="px-2.5 py-1 rounded-md bg-[#A9D8F5]/10 backdrop-blur-md border border-[#A9D8F5]/30 text-[#A9D8F5] text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-md">
                         <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                         Score: {item.safetyScore}
                       </span>
@@ -301,7 +301,7 @@ export default function ParallaxEditorialShowcase() {
 
                     {/* Payout Tag on Bottom Left of Image */}
                     <div className="absolute bottom-3 left-3.5 z-10">
-                      <span className="px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-white/15 text-xs font-semibold text-white flex items-center gap-1.5">
+                      <span className="px-2.5 py-1 rounded-lg bg-[#17131B]/85 backdrop-blur-md border border-[#A9D8F5]/30 text-xs font-semibold text-[#F8F5F2] flex items-center gap-1.5">
                         <Zap className="w-3.5 h-3.5 text-amber-400" />
                         {item.payoutSpeed}
                       </span>
@@ -314,30 +314,30 @@ export default function ParallaxEditorialShowcase() {
                       {/* Regulatory Seal */}
                       <div className="flex items-center gap-2 mb-2">
                         <Lock className="w-3 h-3 text-zinc-400" />
-                        <span className="text-[11px] font-mono uppercase text-zinc-400 tracking-wider">
+                        <span className="text-[11px] font-mono uppercase text-[#A9D8F5] tracking-wider">
                           {item.license}
                         </span>
                       </div>
 
                       {/* Casino Name & Tagline */}
-                      <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-2 group-hover:text-zinc-100 transition-colors">
+                      <h3 className="text-2xl sm:text-3xl font-black text-[#F8F5F2] tracking-tight mb-2 group-hover:text-zinc-100 transition-colors">
                         {item.name}
                       </h3>
-                      <p className="text-xs sm:text-sm font-medium text-emerald-400/90 mb-3">
+                      <p className="text-xs sm:text-sm font-medium text-[#A9D8F5] mb-3">
                         {item.tagline}
                       </p>
 
                       {/* Editorial Audit Note */}
-                      <p className="text-xs sm:text-sm text-zinc-400 line-clamp-3 leading-relaxed mb-5">
+                      <p className="text-xs sm:text-sm text-[#F8F5F2]/75 line-clamp-3 leading-relaxed mb-5">
                         {item.description}
                       </p>
 
                       {/* Verified Welcome Bonus Box */}
-                      <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 mb-6">
-                        <span className="block text-[10px] font-mono uppercase tracking-wider text-zinc-400 mb-1">
+                      <div className="p-3.5 rounded-xl bg-[#17131B]/70 border border-[#A9D8F5]/20 mb-6">
+                        <span className="block text-[10px] font-mono uppercase tracking-wider text-[#A9D8F5] mb-1">
                           Verified Welcome Package
                         </span>
-                        <div className="text-xs sm:text-sm font-bold text-white leading-snug">
+                        <div className="text-xs sm:text-sm font-bold text-[#F8F5F2] leading-snug">
                           {item.bonus}
                         </div>
                       </div>

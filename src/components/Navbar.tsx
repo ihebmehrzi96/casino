@@ -107,8 +107,8 @@ export default function Navbar() {
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-200 ${
           isScrolled
-            ? "bg-[#08090A]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-lg shadow-black/40"
-            : "bg-[#08090A]/40 backdrop-blur-md border-b border-white/[0.04]"
+            ? "bg-[#17131B]/90 backdrop-blur-xl border-b border-[#A9D8F5]/15 shadow-lg shadow-black/40"
+            : "bg-[#17131B]/50 backdrop-blur-md border-b border-[#A9D8F5]/10"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,7 +116,7 @@ export default function Navbar() {
             
             {/* Left: Big Logo using font Tanker */}
             <Link href="/" className="inline-block group focus:outline-none">
-              <span className="font-tanker tracking-wider text-3xl sm:text-4xl lg:text-[42px] text-white font-normal group-hover:text-zinc-200 transition-colors uppercase">
+              <span className="font-tanker tracking-wider text-3xl sm:text-4xl lg:text-[42px] text-[#F8F5F2] font-normal group-hover:text-[#F04464] transition-colors uppercase">
                 Casinova
               </span>
             </Link>
@@ -130,9 +130,9 @@ export default function Navbar() {
                 aria-label="Open Navigation Menu"
               >
                 <div className="w-[30px] h-[20px] flex flex-col justify-between relative pointer-events-none">
-                  <span className="block w-[30px] h-[3px] bg-white rounded-sm group-hover:bg-zinc-300 transition-colors" />
-                  <span className="block w-[30px] h-[3px] bg-white rounded-sm group-hover:bg-zinc-300 transition-colors" />
-                  <span className="block w-[30px] h-[3px] bg-white rounded-sm group-hover:bg-zinc-300 transition-colors" />
+                  <span className="block w-[30px] h-[3px] bg-[#F8F5F2] rounded-sm group-hover:bg-[#F04464] transition-colors" />
+                  <span className="block w-[30px] h-[3px] bg-[#F8F5F2] rounded-sm group-hover:bg-[#F04464] transition-colors" />
+                  <span className="block w-[30px] h-[3px] bg-[#F8F5F2] rounded-sm group-hover:bg-[#F04464] transition-colors" />
                 </div>
               </button>
             </div>
@@ -153,7 +153,7 @@ export default function Navbar() {
         
         {/* Top Bar: Casinova brand on Left, Close X on Right */}
         <div className="w-full max-w-5xl mx-auto flex items-center justify-between px-2 sm:px-6">
-          <h2 className="gsap-brand-title font-tanker tracking-wider text-3xl sm:text-4xl text-white font-normal uppercase">
+          <h2 className="gsap-brand-title font-tanker tracking-wider text-3xl sm:text-4xl text-[#F8F5F2] font-normal uppercase">
             Casinova
           </h2>
 
@@ -181,7 +181,7 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   onClick={handleCloseNav}
-                  className="font-tanker text-2xl sm:text-3xl lg:text-4xl tracking-wider uppercase hover:text-zinc-200 transition-colors inline-block"
+                  className="font-tanker text-2xl sm:text-3xl lg:text-4xl tracking-wider uppercase hover:text-[#F04464] transition-colors inline-block"
                 >
                   {item.name}
                 </Link>
@@ -190,8 +190,8 @@ export default function Navbar() {
           </ul>
 
           {/* Bottom Preferences: Language Switcher */}
-          <div className="mt-8 pt-8 border-t border-white/15 flex items-center justify-center gap-3">
-            <span className="text-xs uppercase tracking-wider text-zinc-400 font-mono mr-1">
+          <div className="mt-8 pt-8 border-t border-[#A9D8F5]/15 flex items-center justify-center gap-3">
+            <span className="text-xs uppercase tracking-wider text-[#A9D8F5] font-mono mr-1">
               {t.nav.language || "Language"}:
             </span>
             <div className="flex items-center gap-2">
@@ -204,8 +204,8 @@ export default function Navbar() {
                   }}
                   className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer ${
                     l.code === lang
-                      ? "bg-white text-black font-bold shadow-md shadow-white/20 scale-105"
-                      : "bg-white/10 hover:bg-white/20 text-zinc-300 hover:text-white border border-white/10"
+                      ? "bg-[#F04464] text-[#F8F5F2] font-bold shadow-md shadow-[#F04464]/30 scale-105"
+                      : "bg-[#1F1A25] hover:bg-[#26202D] text-[#A9D8F5] hover:text-[#F8F5F2] border border-[#A9D8F5]/20"
                   }`}
                 >
                   <span className="text-sm">{l.flag}</span>
@@ -218,7 +218,7 @@ export default function Navbar() {
         </div>
 
         {/* Subtle footer credit inside menu */}
-        <div className="text-center text-[11px] text-zinc-500 font-mono tracking-wider uppercase pb-2">
+        <div className="text-center text-[11px] text-[#A9D8F5]/60 font-mono tracking-wider uppercase pb-2">
           Independent Casino Audits & Safe Play
         </div>
 

@@ -12,16 +12,16 @@ export default function SafetyScoreBadge({ score, tier, size = "md" }: SafetySco
   const isHigh = score >= 8.5;
   const isMedium = score >= 6.5 && score < 8.5;
 
-  let colorClass = "bg-white text-black border border-white font-black";
+  let colorClass = "bg-[#A9D8F5] text-[#17131B] border border-[#A9D8F5] font-black";
   let label = "Vault Elite";
   let Icon = ShieldCheck;
 
   if (isBlacklist) {
-    colorClass = "bg-black text-white border-2 border-white font-black";
+    colorClass = "bg-[#F04464] text-[#F8F5F2] border border-[#F04464] font-black";
     label = "Black Medal Rogue";
     Icon = ShieldAlert;
   } else if (isMedium) {
-    colorClass = "bg-zinc-800 text-zinc-200 border border-white/20";
+    colorClass = "bg-[#1F1A25] text-[#A9D8F5] border border-[#A9D8F5]/30";
     label = "Standard Tier";
     Icon = Shield;
   }

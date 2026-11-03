@@ -21,7 +21,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col bg-[#090A0E] text-white antialiased selection:bg-white selection:text-black">
+      <body className="min-h-screen flex flex-col bg-[#17131B] text-[#F8F5F2] antialiased selection:bg-[#F04464] selection:text-[#F8F5F2]">
         <LanguageProvider>
           <LocationProvider>
             <Navbar />

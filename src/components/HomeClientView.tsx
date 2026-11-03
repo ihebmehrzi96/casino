@@ -50,7 +50,7 @@ export default function HomeClientView({ casinos, blacklist, stats }: HomeClient
   );
 
   return (
-    <div className="bg-[#090A0E] text-white">
+    <div className="bg-[#17131B] text-[#F8F5F2]">
       {/* 1. HERO & TOP CASINOS BANNER */}
       <LinearHero />
 
@@ -61,7 +61,7 @@ export default function HomeClientView({ casinos, blacklist, stats }: HomeClient
       <ParallaxEditorialShowcase />
 
       {/* 4. AUDITED CASINO DIRECTORY & FILTERS */}
-      <section id="casino-directory" className="bg-[#090A0E] border-b border-white/10 py-16">
+      <section id="casino-directory" className="bg-[#17131B] border-b border-[#A9D8F5]/15 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <InteractiveCasinoList initialCasinos={casinos} />
         </div>
@@ -74,51 +74,51 @@ export default function HomeClientView({ casinos, blacklist, stats }: HomeClient
       <GameCategoriesHub />
 
       {/* 6. THE CASINOVA AUDIT PROTOCOL */}
-      <section id="protocol" className="bg-[#090A0E] py-20 border-b border-white/10">
+      <section id="protocol" className="bg-[#17131B] py-20 border-b border-[#A9D8F5]/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-zinc-900 border border-white/10 p-8 sm:p-14">
+          <div className="rounded-2xl bg-[#1F1A25] border border-[#A9D8F5]/20 p-8 sm:p-14 shadow-2xl">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-zinc-300 text-xs font-semibold uppercase tracking-wider mb-5">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17131B] border border-[#A9D8F5]/25 text-[#A9D8F5] text-xs font-semibold uppercase tracking-wider mb-5">
+                <ShieldCheck className="w-4 h-4 text-[#F04464]" />
                 {t.protocol.badge}
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight text-center">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#F8F5F2] mb-4 tracking-tight text-center">
                 {t.protocol.title}
               </h2>
-              <p className="text-zinc-400 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl mx-auto font-normal text-center">
+              <p className="text-[#F8F5F2]/80 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl mx-auto font-normal text-center">
                 {t.protocol.subtitle}
               </p>
 
               {/* 4 Pillars Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-                <div className="p-5 rounded-xl bg-black/40 border border-white/5">
-                  <Scale className="w-5 h-5 text-white mb-2" />
-                  <h4 className="text-white font-bold text-base">{t.protocol.licensingTitle}</h4>
-                  <p className="text-sm text-zinc-400 mt-1 font-normal">
+                <div className="p-6 rounded-xl bg-[#17131B] border border-[#A9D8F5]/15 hover:border-[#F04464]/50 transition-all hover:shadow-[0_10px_25px_-5px_rgba(240,68,100,0.15)]">
+                  <Scale className="w-5 h-5 text-[#A9D8F5] mb-2" />
+                  <h4 className="text-[#F8F5F2] font-bold text-base">{t.protocol.licensingTitle}</h4>
+                  <p className="text-sm text-[#F8F5F2]/75 mt-1 font-normal">
                     {t.protocol.licensingDesc}
                   </p>
                 </div>
 
-                <div className="p-5 rounded-xl bg-black/40 border border-white/5">
-                  <CheckCircle2 className="w-5 h-5 text-white mb-2" />
-                  <h4 className="text-white font-bold text-base">{t.protocol.termsTitle}</h4>
-                  <p className="text-sm text-zinc-400 mt-1 font-normal">
+                <div className="p-6 rounded-xl bg-[#17131B] border border-[#A9D8F5]/15 hover:border-[#F04464]/50 transition-all hover:shadow-[0_10px_25px_-5px_rgba(240,68,100,0.15)]">
+                  <CheckCircle2 className="w-5 h-5 text-[#A9D8F5] mb-2" />
+                  <h4 className="text-[#F8F5F2] font-bold text-base">{t.protocol.termsTitle}</h4>
+                  <p className="text-sm text-[#F8F5F2]/75 mt-1 font-normal">
                     {t.protocol.termsDesc}
                   </p>
                 </div>
 
-                <div className="p-5 rounded-xl bg-black/40 border border-white/5">
-                  <ShieldAlert className="w-5 h-5 text-white mb-2" />
-                  <h4 className="text-white font-bold text-base">{t.protocol.complaintsTitle}</h4>
-                  <p className="text-sm text-zinc-400 mt-1 font-normal">
+                <div className="p-6 rounded-xl bg-[#17131B] border border-[#A9D8F5]/15 hover:border-[#F04464]/50 transition-all hover:shadow-[0_10px_25px_-5px_rgba(240,68,100,0.15)]">
+                  <ShieldAlert className="w-5 h-5 text-[#A9D8F5] mb-2" />
+                  <h4 className="text-[#F8F5F2] font-bold text-base">{t.protocol.complaintsTitle}</h4>
+                  <p className="text-sm text-[#F8F5F2]/75 mt-1 font-normal">
                     {t.protocol.complaintsDesc}
                   </p>
                 </div>
 
-                <div className="p-5 rounded-xl bg-black/40 border border-white/5">
-                  <Zap className="w-5 h-5 text-white mb-2" />
-                  <h4 className="text-white font-bold text-base">{t.protocol.rngTitle}</h4>
-                  <p className="text-sm text-zinc-400 mt-1 font-normal">
+                <div className="p-6 rounded-xl bg-[#17131B] border border-[#A9D8F5]/15 hover:border-[#F04464]/50 transition-all hover:shadow-[0_10px_25px_-5px_rgba(240,68,100,0.15)]">
+                  <Zap className="w-5 h-5 text-[#A9D8F5] mb-2" />
+                  <h4 className="text-[#F8F5F2] font-bold text-base">{t.protocol.rngTitle}</h4>
+                  <p className="text-sm text-[#F8F5F2]/75 mt-1 font-normal">
                     {t.protocol.rngDesc}
                   </p>
                 </div>
@@ -129,19 +129,19 @@ export default function HomeClientView({ casinos, blacklist, stats }: HomeClient
       </section>
 
       {/* 6. VERIFIED BONUSES & PROMO CODES */}
-      <section className="bg-black border-b border-white/10 py-20">
+      <section className="bg-[#17131B] border-b border-[#A9D8F5]/15 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <ScrollReveal direction="up">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
               <div>
-                <div className="inline-flex items-center gap-2 text-xs font-black text-white uppercase tracking-widest mb-2 bg-zinc-900 px-3.5 py-1.5 rounded-full border border-white/20">
-                  <Gift className="w-4 h-4 text-white" />
+                <div className="inline-flex items-center gap-2 text-xs font-black text-white uppercase tracking-widest mb-2 bg-[#1F1A25] px-3.5 py-1.5 rounded-full border border-[#A9D8F5]/25 text-[#A9D8F5]">
+                  <Gift className="w-4 h-4 text-[#F04464]" />
                   {t.bonusesSection.badge}
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                <h2 className="text-3xl sm:text-4xl font-black text-[#F8F5F2] tracking-tight">
                   {t.bonusesSection.title}
                 </h2>
-                <p className="text-sm sm:text-base text-zinc-400 mt-2 font-medium">
+                <p className="text-sm sm:text-base text-[#F8F5F2]/80 mt-2 font-medium">
                   {t.bonusesSection.subtitle} {new Date().getFullYear()}.
                 </p>
               </div>
@@ -159,11 +159,11 @@ export default function HomeClientView({ casinos, blacklist, stats }: HomeClient
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {allBonuses.slice(0, 3).map((bonus: any, idx: number) => (
               <ScrollReveal key={idx} delay={idx * 120} direction="up">
-                <div className="p-7 rounded-2xl bg-zinc-900 border border-white/10 hover:border-white/40 transition-all duration-300 hover:-translate-y-1 shadow-matte-card flex flex-col justify-between space-y-5 group h-full">
+                <div className="p-7 rounded-2xl bg-[#1F1A25] border border-[#A9D8F5]/20 hover:border-[#F04464]/60 transition-all duration-300 hover:-translate-y-1 shadow-2xl flex flex-col justify-between space-y-5 group h-full hover:shadow-[0_15px_30px_-10px_rgba(240,68,100,0.25)]">
                   <div>
                     <div className="flex items-center justify-between gap-3 mb-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-black border border-white/20 overflow-hidden shrink-0 group-hover:scale-105 transition-transform duration-300">
+                        <div className="w-10 h-10 rounded-xl bg-[#17131B] border border-[#A9D8F5]/25 overflow-hidden shrink-0 group-hover:scale-105 transition-transform duration-300">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img src={bonus.casinoLogo} alt={bonus.casinoName} className="w-full h-full object-cover" />
                         </div>
@@ -174,19 +174,19 @@ export default function HomeClientView({ casinos, blacklist, stats }: HomeClient
                           {bonus.casinoName}
                         </Link>
                       </div>
-                      <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-white text-black">
+                      <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#A9D8F5] text-[#17131B]">
                         {bonus.type}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-black text-white leading-snug">{bonus.title}</h3>
+                    <h3 className="text-xl font-black text-[#F8F5F2] leading-snug">{bonus.title}</h3>
 
-                    <div className="grid grid-cols-2 gap-3 mt-5 pt-4 border-t border-white/10 text-xs sm:text-sm font-semibold">
+                    <div className="grid grid-cols-2 gap-3 mt-5 pt-4 border-t border-[#A9D8F5]/15 text-xs sm:text-sm font-semibold">
                       <div>
-                        <span className="text-zinc-400 block text-[11px] font-bold uppercase mb-0.5">
+                        <span className="text-[#A9D8F5] block text-[11px] font-bold uppercase mb-0.5">
                           {t.bonusesSection.wagering}
                         </span>
-                        <span className="font-extrabold text-white">{bonus.wagering}</span>
+                        <span className="font-extrabold text-[#F8F5F2]">{bonus.wagering}</span>
                       </div>
                       <div>
                         <span className="text-zinc-400 block text-[11px] font-bold uppercase mb-0.5">
@@ -209,10 +209,10 @@ export default function HomeClientView({ casinos, blacklist, stats }: HomeClient
                       href={bonus.claimUrl}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      className="btn-white group/btn w-full py-3 px-5 rounded-xl text-center text-xs uppercase tracking-wider flex items-center justify-center gap-2"
+                      className="w-full py-3 px-5 rounded-xl bg-[#F04464] hover:bg-[#e03353] text-[#F8F5F2] font-tanker tracking-wider uppercase text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#F04464]/30 hover:scale-[1.01] transition-all"
                     >
                       <span>{t.bonusesSection.claimThisBonus}</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-black group-hover/btn:translate-x-0.5 transition-transform" />
+                      <ExternalLink className="w-3.5 h-3.5 text-[#F8F5F2] group-hover/btn:translate-x-0.5 transition-transform" />
                     </a>
                     <p className="text-[10px] text-zinc-500 text-center mt-2 font-medium">
                       {t.bonusesSection.termsApply}
@@ -227,17 +227,17 @@ export default function HomeClientView({ casinos, blacklist, stats }: HomeClient
 
       {/* 7. BLACK MEDAL ROGUE SCAM ALERT (CasinoFreak Black Medal System in Pure Black & White) */}
       {blacklist.length > 0 && (
-        <section className="bg-zinc-950 py-16">
+        <section className="bg-[#17131B] py-16 border-b border-[#A9D8F5]/15">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal direction="up">
-              <div className="p-8 sm:p-10 rounded-2xl bg-black border-2 border-white/30 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl">
+              <div className="p-8 sm:p-10 rounded-2xl bg-[#1F1A25] border-2 border-[#F04464]/40 text-[#F8F5F2] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl">
                 <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 rounded-2xl bg-white text-black flex items-center justify-center shrink-0 shadow-lg font-black text-2xl">
+                  <div className="w-14 h-14 rounded-2xl bg-[#F04464] text-[#F8F5F2] flex items-center justify-center shrink-0 shadow-lg font-black text-2xl">
                     ⛔
                   </div>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-black uppercase tracking-wider bg-white text-black px-2.5 py-0.5 rounded-md">
+                      <span className="text-xs font-black uppercase tracking-wider bg-[#F04464] text-[#F8F5F2] px-2.5 py-0.5 rounded-md font-tanker">
                         BLACK MEDAL ROGUE
                       </span>
                       <span className="text-xs font-semibold text-zinc-400">
@@ -255,7 +255,7 @@ export default function HomeClientView({ casinos, blacklist, stats }: HomeClient
 
                 <Link
                   href="/blacklist"
-                  className="btn-white shrink-0 px-6 py-3 rounded-xl text-xs uppercase tracking-wider"
+                  className="shrink-0 px-6 py-3 rounded-xl bg-[#F04464] hover:bg-[#e03353] text-[#F8F5F2] font-tanker text-sm uppercase tracking-wider shadow-lg shadow-[#F04464]/30 transition-all"
                 >
                   {t.blacklistSection.viewBlacklist} ({blacklist.length})
                 </Link>

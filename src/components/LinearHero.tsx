@@ -145,13 +145,13 @@ export default function LinearHero({ onSearchChange, onTagClick }: LinearHeroPro
   };
 
   return (
-    <div ref={heroRef} className="relative bg-[#090A0E] text-white overflow-hidden border-b border-white/10">
+    <div ref={heroRef} className="relative bg-[#17131B] text-[#F8F5F2] overflow-hidden border-b border-[#A9D8F5]/15">
       
       {/* ── PARALLAX DEPTH LAYERS (Unfold Style) ── */}
       {/* Layer 1: Ambient Background Glow & Perspective Grid */}
       <div className="unfold-bg-layer absolute inset-0 pointer-events-none select-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-purple-700/15 via-indigo-600/10 to-transparent rounded-full blur-[140px]" />
-        <div className="absolute -top-32 right-10 w-[450px] h-[450px] bg-rose-600/10 rounded-full blur-[130px]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#F04464]/20 via-[#A9D8F5]/10 to-transparent rounded-full blur-[140px]" />
+        <div className="absolute -top-32 right-10 w-[450px] h-[450px] bg-[#A9D8F5]/15 rounded-full blur-[130px]" />
         
         {/* Subtle SVG Perspective Horizon Lines */}
         <svg
@@ -160,36 +160,36 @@ export default function LinearHero({ onSearchChange, onTagClick }: LinearHeroPro
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <line x1="0" y1="500" x2="1440" y2="500" stroke="#6366F1" strokeWidth="1" />
-          <line x1="100" y1="600" x2="720" y2="400" stroke="#818CF8" strokeWidth="0.8" strokeDasharray="4 4" />
-          <line x1="1340" y1="600" x2="720" y2="400" stroke="#818CF8" strokeWidth="0.8" strokeDasharray="4 4" />
-          <line x1="300" y1="600" x2="720" y2="400" stroke="#A855F7" strokeWidth="0.8" strokeDasharray="4 4" />
-          <line x1="1140" y1="600" x2="720" y2="400" stroke="#A855F7" strokeWidth="0.8" strokeDasharray="4 4" />
+          <line x1="0" y1="500" x2="1440" y2="500" stroke="#F04464" strokeWidth="1" />
+          <line x1="100" y1="600" x2="720" y2="400" stroke="#A9D8F5" strokeWidth="0.8" strokeDasharray="4 4" />
+          <line x1="1340" y1="600" x2="720" y2="400" stroke="#A9D8F5" strokeWidth="0.8" strokeDasharray="4 4" />
+          <line x1="300" y1="600" x2="720" y2="400" stroke="#A9D8F5" strokeWidth="0.8" strokeDasharray="4 4" />
+          <line x1="1140" y1="600" x2="720" y2="400" stroke="#A9D8F5" strokeWidth="0.8" strokeDasharray="4 4" />
         </svg>
       </div>
 
       {/* Layer 2: Midground Floating Elements (Dice & Shield) */}
       <div className="unfold-mid-shield absolute top-28 left-[8%] hidden lg:block pointer-events-none select-none z-0">
-        <div className="w-16 h-16 rounded-2xl bg-white/[0.04] border border-white/15 backdrop-blur-md flex items-center justify-center shadow-2xl">
-          <ShieldCheck className="w-8 h-8 text-emerald-400 drop-shadow-[0_0_12px_rgba(52,211,153,0.5)]" />
+        <div className="w-16 h-16 rounded-2xl bg-[#1F1A25] border border-[#A9D8F5]/25 backdrop-blur-md flex items-center justify-center shadow-2xl">
+          <ShieldCheck className="w-8 h-8 text-[#A9D8F5] drop-shadow-[0_0_12px_rgba(169,216,245,0.6)]" />
         </div>
       </div>
 
       <div className="unfold-mid-dice absolute top-40 right-[10%] hidden lg:block pointer-events-none select-none z-0">
-        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400/20 to-amber-600/10 border border-amber-400/30 backdrop-blur-md flex items-center justify-center shadow-2xl text-2xl">
+        <div className="w-14 h-14 rounded-2xl bg-[#1F1A25] border border-[#F04464]/40 backdrop-blur-md flex items-center justify-center shadow-2xl text-2xl">
           🎲
         </div>
       </div>
 
       {/* Layer 3: Foreground Floating Elements (Poker Chips) */}
       <div className="unfold-fore-chip1 absolute bottom-24 left-[12%] hidden lg:block pointer-events-none select-none z-0">
-        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 border-2 border-white text-black font-black text-xs flex items-center justify-center shadow-[0_0_25px_rgba(245,158,11,0.5)]">
+        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#A9D8F5] to-[#7dbfe6] border-2 border-[#F8F5F2] text-[#17131B] font-black text-xs flex items-center justify-center shadow-[0_0_25px_rgba(169,216,245,0.6)]">
           $100
         </div>
       </div>
 
       <div className="unfold-fore-chip2 absolute bottom-32 right-[14%] hidden lg:block pointer-events-none select-none z-0">
-        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-rose-500 to-pink-600 border-2 border-white text-white font-black text-xs flex items-center justify-center shadow-[0_0_25px_rgba(244,63,94,0.5)]">
+        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#F04464] to-[#cc2d4c] border-2 border-[#F8F5F2] text-[#F8F5F2] font-black text-xs flex items-center justify-center shadow-[0_0_25px_rgba(240,68,100,0.6)]">
           $500
         </div>
       </div>
@@ -199,11 +199,11 @@ export default function LinearHero({ onSearchChange, onTagClick }: LinearHeroPro
         <div className="max-w-4xl mx-auto text-center">
           
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-zinc-300 mb-6">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1F1A25] border border-[#A9D8F5]/25 text-xs font-medium text-[#F8F5F2] mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#F04464] animate-pulse" />
             <span className="font-semibold text-white">{t.hero.badge}</span>
-            <span className="text-zinc-600">|</span>
-            <span className="text-zinc-400 font-mono text-[11px]">2026 Audit Registry</span>
+            <span className="text-[#A9D8F5]/40">|</span>
+            <span className="text-[#A9D8F5] font-mono text-[11px]">2026 Audit Registry</span>
           </div>
 
           {/* Master Kinetic Headline */}
@@ -220,7 +220,7 @@ export default function LinearHero({ onSearchChange, onTagClick }: LinearHeroPro
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-5 text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className="mt-5 text-base sm:text-lg text-[#F8F5F2]/80 max-w-2xl mx-auto font-normal leading-relaxed">
             {t.hero.subtitle}
           </p>
 
@@ -228,7 +228,7 @@ export default function LinearHero({ onSearchChange, onTagClick }: LinearHeroPro
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               href="#editorial-showcase"
-              className="px-6 py-3 rounded-full bg-white hover:bg-zinc-200 text-black font-bold text-xs sm:text-sm transition flex items-center gap-2 shadow-lg shadow-white/10 hover:scale-[1.02]"
+              className="px-6 py-3 rounded-full bg-[#F04464] hover:bg-[#e03353] text-[#F8F5F2] font-tanker tracking-wider uppercase text-sm sm:text-base transition flex items-center gap-2 shadow-lg shadow-[#F04464]/30 hover:scale-[1.02]"
             >
               <span>{t.hero.exploreCasinos || "Explore 48 Audited Casinos"}</span>
               <ArrowRight className="w-4 h-4" />
@@ -236,9 +236,9 @@ export default function LinearHero({ onSearchChange, onTagClick }: LinearHeroPro
 
             <Link
               href="/blacklist"
-              className="px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium text-xs sm:text-sm transition flex items-center gap-2"
+              className="px-6 py-3 rounded-full bg-[#1F1A25] hover:bg-[#26202D] border border-[#A9D8F5]/25 text-[#A9D8F5] hover:text-[#F8F5F2] font-tanker tracking-wider uppercase text-sm sm:text-base transition flex items-center gap-2"
             >
-              <ShieldAlert className="w-4 h-4 text-rose-400" />
+              <ShieldAlert className="w-4 h-4 text-[#F04464]" />
               <span>{t.hero.blacklistedSites || "Blacklisted Sites (24)"}</span>
             </Link>
           </div>
@@ -246,13 +246,13 @@ export default function LinearHero({ onSearchChange, onTagClick }: LinearHeroPro
           {/* Search Bar with live translation */}
           <div className="mt-8 max-w-xl mx-auto w-full">
             <div className="relative flex items-center">
-              <Search className="absolute left-4 w-4 h-4 text-zinc-500" />
+              <Search className="absolute left-4 w-4 h-4 text-[#A9D8F5]/60" />
               <input
                 type="text"
                 value={searchValue}
                 onChange={handleSearch}
                 placeholder={t.hero.searchPlaceholder || "Search by casino name, crypto, license, or bonus..."}
-                className="w-full pl-11 pr-24 py-3 rounded-xl bg-zinc-900/90 border border-white/15 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-white/40 transition shadow-inner"
+                className="w-full pl-11 pr-24 py-3 rounded-xl bg-[#1F1A25] border border-[#A9D8F5]/25 text-sm text-[#F8F5F2] placeholder-[#A9D8F5]/60 focus:outline-none focus:border-[#F04464] transition shadow-inner"
               />
               {searchValue && (
                 <button
@@ -261,7 +261,7 @@ export default function LinearHero({ onSearchChange, onTagClick }: LinearHeroPro
                     setSearchValue("");
                     if (onSearchChange) onSearchChange("");
                   }}
-                  className="absolute right-3 text-xs font-mono text-zinc-400 hover:text-white px-2 py-0.5 rounded bg-white/10"
+                  className="absolute right-3 text-xs font-mono text-[#A9D8F5] hover:text-[#F8F5F2] px-2 py-0.5 rounded bg-[#17131B]"
                 >
                   Clear
                 </button>
@@ -270,32 +270,32 @@ export default function LinearHero({ onSearchChange, onTagClick }: LinearHeroPro
 
             {/* Quick Filter Tags */}
             <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-xs">
-              <span className="text-zinc-500 font-mono text-[11px]">{t.hero.popular || "Popular:"}</span>
+              <span className="text-[#A9D8F5] font-mono text-[11px]">{t.hero.popular || "Popular:"}</span>
               <button
                 type="button"
                 onClick={() => handleTag("Instant Payouts")}
-                className="px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white transition"
+                className="px-3 py-1 rounded-full bg-[#1F1A25] hover:bg-[#26202D] border border-[#A9D8F5]/20 text-[#A9D8F5] hover:text-[#F8F5F2] hover:border-[#F04464]/40 transition"
               >
                 {t.hero.instantPayouts || "⚡ Instant Payouts"}
               </button>
               <button
                 type="button"
                 onClick={() => handleTag("Crypto Friendly")}
-                className="px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white transition"
+                className="px-3 py-1 rounded-full bg-[#1F1A25] hover:bg-[#26202D] border border-[#A9D8F5]/20 text-[#A9D8F5] hover:text-[#F8F5F2] hover:border-[#F04464]/40 transition"
               >
                 {t.hero.cryptoNoKyc || "🪙 Crypto / No KYC"}
               </button>
               <button
                 type="button"
                 onClick={() => handleTag("Very High Safety")}
-                className="px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white transition"
+                className="px-3 py-1 rounded-full bg-[#1F1A25] hover:bg-[#26202D] border border-[#A9D8F5]/20 text-[#A9D8F5] hover:text-[#F8F5F2] hover:border-[#F04464]/40 transition"
               >
                 {t.hero.safetyHigh || "🛡️ Safety 9.5+"}
               </button>
               <button
                 type="button"
                 onClick={() => handleTag("No Deposit")}
-                className="px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white transition"
+                className="px-3 py-1 rounded-full bg-[#1F1A25] hover:bg-[#26202D] border border-[#A9D8F5]/20 text-[#A9D8F5] hover:text-[#F8F5F2] hover:border-[#F04464]/40 transition"
               >
                 {t.hero.freeSpins || "🎁 Free Spins"}
               </button>
