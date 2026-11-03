@@ -76,21 +76,21 @@ export default function HomeClientView({ casinos, blacklist, stats }: HomeClient
       {/* 6. THE CASINOVA AUDIT PROTOCOL */}
       <section id="protocol" className="bg-[#090A0E] py-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-zinc-900 border border-white/10 p-8 sm:p-12">
-            <div className="max-w-3xl">
+          <div className="rounded-2xl bg-zinc-900 border border-white/10 p-8 sm:p-14">
+            <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-zinc-300 text-xs font-semibold uppercase tracking-wider mb-5">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
                 {t.protocol.badge}
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight text-center">
                 {t.protocol.title}
               </h2>
-              <p className="text-zinc-400 text-base sm:text-lg leading-relaxed mb-10 font-normal">
+              <p className="text-zinc-400 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl mx-auto font-normal text-center">
                 {t.protocol.subtitle}
               </p>
 
               {/* 4 Pillars Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
                 <div className="p-5 rounded-xl bg-black/40 border border-white/5">
                   <Scale className="w-5 h-5 text-white mb-2" />
                   <h4 className="text-white font-bold text-base">{t.protocol.licensingTitle}</h4>
