@@ -1,0 +1,153 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Casino {
+  id              String   @id @default(cuid())
+  name            String
+  slug            String   @unique
+  logoUrl         String
+  bannerUrl       String?
+  rating          Float    @default(9.0)
+  safetyIndex     Float    @default(9.5) // Watchdog score out of 10
+  safetyTier      String   @default("VERY_HIGH") // VERY_HIGH, HIGH, MEDIUM, LOW, BLACKLISTED
+  status          String   @default("ACTIVE") // ACTIVE, WARNING, BLACKLISTED
+  blacklistReason String?  @db.Text
+  establishedYear Int?     @default(2020)
+  license         String   @default("Curacao (GCB)")
+  minDeposit      String   @default("$20")
+  payoutSpeed     String   @default("0 - 24 hours")
+  withdrawalLimit String?  @default("$50,000 / month")
+  supportTypes    String?  @default("24/7 Live Chat & Email")
+  websiteUrl      String
+  affiliateUrl    String
+  pros            String   @db.Text // JSON string array
+  cons            String   @db.Text // JSON string array
+  summary         String   @db.Text
+  fullReview      String   @db.Text
+  featured        Boolean  @default(false)
+  isNew           Boolean  @default(true)
+  vpnFriendly     Boolean  @default(false)
+  cryptoFriendly  Boolean  @default(false)
+  
+  bonuses         Bonus[]
+  reviews         UserReview[]
+  paymentMethods  CasinoPaymentMethod[]
+  providers       CasinoProvider[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Bonus {
+  id          String   @id @default(cuid())
+  casinoId    String
+  casino      Casino   @relation(fields: [casinoId], references: [id], onDelete: Cascade)
+  title       String
+  type        String   @default("WELCOME") // WELCOME, NO_DEPOSIT, FREE_SPINS, CASHBACK
+  bonusCode   String?
+  minDeposit  String?  @default("$20")
+  wagering    String   @default("35x")
+  maxCashout  String?  @default("No Limit")
+  exclusive   Boolean  @default(false)
+  claimUrl    String
+  terms       String?  @db.Text
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model PaymentMethod {
+  id      String   @id @default(cuid())
+  name    String
+  slug    String   @unique
+  icon    String?
+  type    String   @default("FIAT") // CRYPTO, CARD, EWALLET, BANK
+  casinos CasinoPaymentMethod[]
+}
+
+model CasinoPaymentMethod {
+  id              String        @id @default(cuid())
+  casinoId        String
+  paymentMethodId String
+  casino          Casino        @relation(fields: [casinoId], references: [id], onDelete: Cascade)
+  paymentMethod   PaymentMethod @relation(fields: [paymentMethodId], references: [id], onDelete: Cascade)
+
+  @@unique([casinoId, paymentMethodId])
+}
+
+model SoftwareProvider {
+  id      String   @id @default(cuid())
+  name    String
+  slug    String   @unique
+  logoUrl String?
+  casinos CasinoProvider[]
+}
+
+model CasinoProvider {
+  id         String           @id @default(cuid())
+  casinoId   String
+  providerId String
+  casino     Casino           @relation(fields: [casinoId], references: [id], onDelete: Cascade)
+  provider   SoftwareProvider @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@unique([casinoId, providerId])
+}
+
+model UserReview {
+  id         String   @id @default(cuid())
+  casinoId   String
+  casino     Casino   @relation(fields: [casinoId], references: [id], onDelete: Cascade)
+  authorName String
+  rating     Float
+  title      String
+  comment    String   @db.Text
+  isApproved Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+}
+
+model Game {
+  id           String   @id @default(cuid())
+  title        String
+  slug         String   @unique
+  category     String   @default("Slots") // Slots, Roulette, Plinko Games, Crash Games, etc.
+  provider     String   @default("Pragmatic Play")
+  rtp          String   @default("96.50%")
+  volatility   String   @default("High")
+  thumbnailUrl String
+  demoUrl      String?
+  featured     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+}
+
+model Guide {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  category    String   @default("General") // Beginner, Strategy, Payment, Safety
+  excerpt     String   @db.Text
+  content     String   @db.Text
+  readTime    String   @default("5 min read")
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SiteSetting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}

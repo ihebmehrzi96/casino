@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sreda');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Sreda';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Sreda'), url('https://fonts.cdnfonts.com/s/57731/Sreda.woff') format('woff');
+  unicode-range: U+0020-007E; /* Basic ASCII range so accented letters fall back smoothly */
+}
+
+.font-sreda {
+  font-family: 'Sreda', 'Inter', Georgia, serif;
+}
+
+:root {
+  --background: #090A0E;
+  --foreground: #FFFFFF;
+}
+
+body {
+  background-color: #090A0E;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── Kinetic Typography Headline Animation ── */
+.kinetic-headline {
+  font-family: 'Poppins', sans-serif;
+  visibility: hidden;
+}
+
+.kinetic-box {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  vertical-align: top;
+  line-height: 1;
+  padding: 0.08em 0;
+}
+
+.kinetic-char {
+  display: block;
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 1.4px rgba(255, 255, 255, 0.9);
+  font-weight: 800;
+  line-height: 1;
+  user-select: none;
+}
+
+.kinetic-char::before {
+  content: attr(data-char);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-110%);
+  color: #ffffff;
+  -webkit-text-stroke: 0px transparent;
+  line-height: 1;
+}
+
+.kinetic-char-highlight {
+  color: transparent;
+  -webkit-text-stroke: 1.4px #34d399;
+}
+
+.kinetic-char-highlight::before {
+  color: #34d399;
+  text-shadow: 0 0 16px rgba(52, 211, 153, 0.65);
+  -webkit-text-stroke: 0px transparent;
+}
+
+@media (min-width: 640px) {
+  .kinetic-char {
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.95);
+  }
+  .kinetic-char-highlight {
+    -webkit-text-stroke: 2px #34d399;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090A0E;
+}
+::-webkit-scrollbar-thumb {
+  background: #23252E;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B3E4C;
+}
+
+/* ── GSAP Animated Fullscreen Nav ── */
+.gsap-fullscreen-nav {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000000;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: translateX(100%);
+  pointer-events: none;
+}
+
+.gsap-fullscreen-nav.is-open {
+  pointer-events: all;
+}
+
+.gsap-fullscreen-nav ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.gsap-fullscreen-nav ul li {
+  margin: 18px 0;
+}
+
+.gsap-fullscreen-nav ul li a {
+  color: #fafafa;
+  font-size: 1.65rem;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  letter-spacing: -0.3px;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .gsap-fullscreen-nav ul li a {
+    font-size: 2.15rem;
+  }
+}
+
+.gsap-fullscreen-nav ul li a:after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  height: 3px;
+  border-radius: 5px;
+  background: #ffffff;
+  bottom: -8px;
+  left: 0;
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  transform: scaleX(0);
+}
+
+.gsap-fullscreen-nav ul li a:hover:after {
+  transform: scaleX(1);
+}
+
+.gsap-fullscreen-nav .gsap-close {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  pointer-events: all;
+}
+
+.gsap-fullscreen-nav .gsap-close div::before,
+.gsap-fullscreen-nav .gsap-close div::after {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 3px;
+  background: #ffffff;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.gsap-fullscreen-nav .gsap-close div::before {
+  transform: rotate(-45deg);
+}
+
+.gsap-fullscreen-nav .gsap-close div::after {
+  transform: rotate(45deg);
+}
+
+.gsap-fullscreen-nav .gsap-close:hover div::before,
+.gsap-fullscreen-nav .gsap-close:hover div::after {
+  background: rgb(239, 68, 68);
+}
+
+.gsap-fullscreen-nav .gsap-brand-title {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  color: #ffffff;
+}
+
+/* ── Swiper ScrollSynced Carousel (Gsap + Swiper) ── */
+.editorial-carousel-section {
+  position: relative;
+  width: 100%;
+  background: #090A0E;
+}
+
+.editorial-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.editorial-carousel .swiper-container {
+  overflow: visible;
+  position: relative;
+  width: 100%;
+}
+
+.editorial-carousel .swiper-wrapper {
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.editorial-carousel .swiper-slide {
+  height: auto;
+  width: 480px;
+  max-width: 86vw;
+  flex-shrink: 0;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.editorial-carousel .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.45;
+  transform: scale(0.95);
+}
+
+.editorial-carousel .swiper-slide.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.editorial-carousel .swiper-navigation-container {
+  pointer-events: none;
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .editorial-carousel .swiper-navigation-container {
+    padding: 0 2rem;
+  }
+}
+
+.editorial-carousel .swiper-prev,
+.editorial-carousel .swiper-next {
+  pointer-events: auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(13, 15, 21, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+}
+
+.editorial-carousel .swiper-prev:hover,
+.editorial-carousel .swiper-next:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: scale(1.08);
+}
+
+.editorial-carousel .swiper-prev.swiper-button-disabled,
+.editorial-carousel .swiper-next.swiper-button-disabled {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.editorial-carousel .swiper-pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.editorial-carousel .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.editorial-carousel .swiper-pagination-bullet-active {
+  width: 32px;
+  background: #34d399;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.7);
+}
+
+/* ── Apple-Style ScrollTrigger Accordion Deck ── */
+.casino-accordions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.casino-accordion {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(16px);
+}
+
+.casino-accordion:hover {
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+}
+
+.casino-accordion .casino-accordion-header {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.casino-accordion .casino-accordion-body {
+  overflow: hidden;
+  position: relative;
+}
