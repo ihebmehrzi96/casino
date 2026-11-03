@@ -114,9 +114,9 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             
-            {/* Left: Big Logo using font Sreda */}
+            {/* Left: Big Logo using font Tanker */}
             <Link href="/" className="inline-block group focus:outline-none">
-              <span className="font-sreda text-3xl sm:text-4xl lg:text-[42px] text-white font-normal tracking-tight group-hover:text-zinc-200 transition-colors">
+              <span className="font-tanker tracking-wider text-3xl sm:text-4xl lg:text-[42px] text-white font-normal group-hover:text-zinc-200 transition-colors uppercase">
                 Casinova
               </span>
             </Link>
@@ -153,7 +153,7 @@ export default function Navbar() {
         
         {/* Top Bar: Casinova brand on Left, Close X on Right */}
         <div className="w-full max-w-5xl mx-auto flex items-center justify-between px-2 sm:px-6">
-          <h2 className="gsap-brand-title font-sreda text-3xl sm:text-4xl text-white font-normal">
+          <h2 className="gsap-brand-title font-tanker tracking-wider text-3xl sm:text-4xl text-white font-normal uppercase">
             Casinova
           </h2>
 

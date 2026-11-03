@@ -1,3 +1,4 @@
+@import url('https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/sreda');
@@ -32,9 +33,19 @@ body {
   line-height: 1.6;
 }
 
+
+/* ── Fontshare Tanker Typography for All Titles ── */
+.font-tanker,
+.font-heading,
+h1, h2, h3, h4 {
+  font-family: 'Tanker', 'Poppins', sans-serif;
+  letter-spacing: 0.03em;
+}
+
 /* ── Kinetic Typography Headline Animation ── */
 .kinetic-headline {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Tanker', 'Poppins', sans-serif;
+  letter-spacing: 0.03em;
   visibility: hidden;
 }
 

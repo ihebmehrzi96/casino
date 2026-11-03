@@ -39,7 +39,7 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="md:col-span-1 space-y-4">
             <Link href="/" className="inline-block">
-              <span className="font-sreda text-3xl text-white font-normal tracking-tight">
+              <span className="font-tanker tracking-wider text-3xl text-white font-normal uppercase">
                 Casinova
               </span>
             </Link>

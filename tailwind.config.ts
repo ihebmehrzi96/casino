@@ -19,7 +19,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['"Sreda"', "Georgia", "serif", "sans-serif"],
+        sans: ['"Inter"', "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        tanker: ['"Tanker"', '"Poppins"', "sans-serif"],
+        heading: ['"Tanker"', '"Poppins"', "sans-serif"],
         serif: ['"Sreda"', "Georgia", "serif"],
         sreda: ['"Sreda"', "Georgia", "serif"],
       },
